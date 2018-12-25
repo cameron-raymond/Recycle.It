@@ -5,8 +5,7 @@ export default StyleSheet.create({
         flex: 10 / 100,
         padding: 30,
         alignSelf: 'stretch',
-
-        backgroundColor: colours.icon,
+        backgroundColor: colours.header,
         alignItems: 'center',
         justifyContent: 'center',
     },
