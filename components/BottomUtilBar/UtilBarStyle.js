@@ -1,17 +1,21 @@
-import { StyleSheet } from "react-native"
-import {colours} from '../../assets/colours'
+import { StyleSheet , Dimensions} from "react-native"
+import {colours} from '../../assets/standardized'
+
+let width = Dimensions.get('window').width
 export default StyleSheet.create({
     container: {
         flex: 10 / 100,
+        flexDirection: 'row',
         padding: 30,
         alignSelf: 'stretch',
         backgroundColor: colours.header,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
     },
     camera: {
         position: 'absolute',
         top: -50,
+        left: (width/2)-130/2,
         backgroundColor: '#666',
         width: 130,
         height: 130,
@@ -21,7 +25,11 @@ export default StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-around',
-        alignSelf: 'flex-start',
+    },
+    flip: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-around',
     }
     
 })

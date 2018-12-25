@@ -38,6 +38,8 @@
       "package": "R.IT",
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/cameron-raymond/Recycle.It"
   }
 }
