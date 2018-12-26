@@ -1,22 +1,9 @@
-// import React from 'react';
-// import { View } from 'react-native';
-import Header from '../../components/Header/Header'
-import BottomUtilBar from '../../components/BottomUtilBar/BottomUtilBar'
-import styles from './homeStyle'
-// export default class Home extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Header/>
-//         <View style={{flex: 80/100}}/>
-//         <Snap/>
-//       </View>
-//     );
-//   }
-// }
 import React from 'react';
 import { Text, View, Image,Animated } from 'react-native';
 import { Camera, Permissions ,BlurView} from 'expo';
+import Header from '../../components/Header/Header'
+import BottomUtilBar from '../../components/BottomUtilBar/BottomUtilBar'
+import styles from './homeStyle'
 
 export default class CameraExample extends React.Component {
   state = {
@@ -59,7 +46,7 @@ export default class CameraExample extends React.Component {
   }
 
   preOrPostPicture = () => {
-    if (!this.state.img) {
+    // if (!this.state.img) {
       return (
         <React.Fragment>
           <Camera style={{ flex: 90 / 100 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
@@ -74,22 +61,22 @@ export default class CameraExample extends React.Component {
           </Camera>
         </React.Fragment>
       );
-    }
+    // }
 
-    return (<React.Fragment>
-      <Camera style={{ flex: 90 / 100 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
-        <BlurView
-          tint={'dark'}
-          intensity={70}
-          style={{
-            flex: 1,
-            backgroundColor: 'transparent',
-            flexDirection: 'row',
-          }}>
-        </BlurView>
-      </Camera>
-    </React.Fragment>
-    )
+    // return (<React.Fragment>
+    //   <Camera style={{ flex: 90 / 100 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
+    //     <BlurView
+    //       tint={'dark'}
+    //       intensity={70}
+    //       style={{
+    //         flex: 1,
+    //         backgroundColor: 'transparent',
+    //         flexDirection: 'row',
+    //       }}>
+    //     </BlurView>
+    //   </Camera>
+    // </React.Fragment>
+    // )
   }
 
   render() {

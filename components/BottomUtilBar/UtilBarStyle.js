@@ -12,10 +12,12 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    camera: {
+    cameraPos:{
         position: 'absolute',
         top: -50,
         left: (width/2)-130/2,
+    },
+    camera: {
         backgroundColor: '#666',
         width: 130,
         height: 130,
