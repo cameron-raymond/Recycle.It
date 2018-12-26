@@ -3,6 +3,7 @@ import { Text, View, Image,Animated } from 'react-native';
 import { Camera, Permissions ,BlurView} from 'expo';
 import Header from '../../components/Header/Header'
 import BottomUtilBar from '../../components/BottomUtilBar/BottomUtilBar'
+import Loading from '../../components/LoadingAnimation/LoadingAnimation'
 import styles from './homeStyle'
 
 export default class CameraExample extends React.Component {
@@ -25,12 +26,12 @@ export default class CameraExample extends React.Component {
     });
   }
 
-  handleSnap = () => {
+  handleSnap = async () => {
     if (this.camera) {
       this.camera.pausePreview();
-      this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
-        this.onPictureSaved(data.base64);
-      });
+      // this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
+      //   this.onPictureSaved(data.base64);
+      // });
       this.setState({
         foo: Math.random()
       });
@@ -57,6 +58,7 @@ export default class CameraExample extends React.Component {
                 flexDirection: 'row',
               }}>
             </View>
+             {this.state.foo ? <Loading/> : null} 
             <BottomUtilBar primary={this.handleSnap} third={this.handleFlip} secondary={() => console.log("PhotoRoll")} />
           </Camera>
         </React.Fragment>

@@ -2,42 +2,49 @@ import React from 'react';
 import styles from './UtilBarStyle'
 import Flip from './Flip'
 import PhotoRoll from './PhotoRoll'
-import { View, TouchableOpacity, Animated} from 'react-native';
+import { TouchableOpacity, Animated } from 'react-native';
 
-export default class Home extends React.Component {
+export default class BottomUtil extends React.PureComponent {
     constructor(props) {
         super(props)
-        this.state = { disabled: false };
-
         this.springValue = new Animated.Value(1)
+        this.animateUtil = new Animated.Value(0)
     }
-    _handleButton = () => {
-        
-        this.springValue.setValue(1)
-        Animated.spring(
+    _animateUtil = () => {
+        return Animated.timing(
+            this.animateUtil,
+            { useNativeDriver: true, toValue: 200 }
+        )
+    }
+    _animateButton = () => {
+        return Animated.spring(
             this.springValue,
             {
+                useNativeDriver: true,
                 toValue: 0,
                 friction: 30,
             }
-        ).start()
-        this.props.primary()
-        this.setState({disabled: true})
+        )
+    }
+    _handleButton = () => {
+        this.springValue.setValue(1)
+        this.animateUtil.setValue(0)
+        Animated.stagger(20, [this._animateButton(), this._animateUtil()]).start()
+        {this.props.primary ? this.props.primary() : null}
+        this.setState({ disabled: true })
     }
 
     render() {
         return (
-            <View style={styles.container}>
+            <Animated.View style={[styles.container, { transform: [{ translateY: this.animateUtil }] }]}>
                 <PhotoRoll onPress={this.props.secondary} />
                 <TouchableOpacity
-                    disabled={this.state.disabled}
                     style={styles.cameraPos}
                     onPress={this._handleButton}>
-                    <Animated.View style={[styles.camera, {transform: [{ scale: this.springValue }]}]} />
+                    <Animated.View style={[styles.camera, { transform: [{ scale: this.springValue }] }]} />
                 </TouchableOpacity>
-
                 <Flip onPress={this.props.third} />
-            </View>
+            </Animated.View>
         )
     }
 }

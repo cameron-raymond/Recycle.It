@@ -177,7 +177,10 @@ PODS:
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
   - JKBigInteger2 (0.0.5)
-  - lottie-ios (2.5.2)
+  - lottie-ios (2.5.0)
+  - lottie-react-native (2.3.2):
+    - lottie-ios
+    - React
   - React (0.57.1):
     - React/Core (= 0.57.1)
   - React/ART (0.57.1):
@@ -264,6 +267,8 @@ DEPENDENCIES:
   - EXSMS (from `../node_modules/expo-sms/ios`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - lottie-ios (from `../node_modules/lottie-ios`)
+  - lottie-react-native (from `../node_modules/lottie-react-native`)
   - React/ART (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -302,7 +307,6 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - JKBigInteger2
-    - lottie-ios
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -372,6 +376,10 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  lottie-ios:
+    :path: "../node_modules/lottie-ios"
+  lottie-react-native:
+    :path: "../node_modules/lottie-react-native"
   React:
     :path: "../node_modules/react-native"
   RNVectorIcons:
@@ -438,11 +446,12 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   JKBigInteger2: e91672035c42328c48b7dd015b66812ddf40ca9b
-  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  lottie-ios: 9f24be3ecb13412223b6ac70d97437742b0e3de1
+  lottie-react-native: db4bd75685428c4ad0ec2f913145abff3d38b640
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: cb219ecd8bf63574754d862a14759a9bd7973e59
+PODFILE CHECKSUM: 47fabe074558352a4a4ec3bc6b4d9a9b04bd8026
 
 COCOAPODS: 1.5.3
