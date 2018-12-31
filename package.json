@@ -7,6 +7,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@google-cloud/vision": "^0.24.0",
+    "clarifai": "^2.9.0",
     "expo": "^31.0.2",
     "lottie-react-native": "^2.3.2",
     "react": "16.5.0",

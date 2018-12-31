@@ -6,4 +6,6 @@ This application draws from the Behavioural Insights Team that has been wildly s
 * Timely: The app will be opened used to picture one thing and then closed. This entire flow should happen in < 10 seconds ideally.
 
 
+For reference, [here](https://github.com/garythung/trashnet) is the link to the data set used.
+
 Ideally this will serve as a tool to help reduce recycling contamination with React Native and Tensorflow.

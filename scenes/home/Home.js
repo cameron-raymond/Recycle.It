@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, View, Image, Animated } from 'react-native';
+import { Text, View } from 'react-native';
 import { Camera, Permissions, BlurView } from 'expo';
+import { classifyImg} from '../../computation/Clarifai'
 import Header from '../../components/Header/Header'
 import BottomUtilBar from '../../components/BottomUtilBar/BottomUtilBar'
 import Loading from '../../components/LoadingAnimation/LoadingAnimation'
@@ -29,9 +30,9 @@ export default class CameraExample extends React.Component {
   handleSnap = async () => {
     if (this.camera) {
       this.camera.pausePreview();
-      // this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
-      //   this.onPictureSaved(data.base64);
-      // });
+      this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
+        classifyImg(data.base64);
+      });
       this.setState({
         foo: Math.random()
       });
