@@ -7,12 +7,13 @@ import BottomUtilBar from '../../components/BottomUtilBar/BottomUtilBar'
 import Loading from '../../components/LoadingAnimation/LoadingAnimation'
 import styles from './homeStyle'
 
-export default class CameraExample extends React.Component {
+export default class Home extends React.Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
-    img: null,
     loading: false,
+    blur: false,
+    classified: null,
   };
 
   async componentDidMount() {
@@ -32,36 +33,27 @@ export default class CameraExample extends React.Component {
     if (this.camera) {
       this.camera.pausePreview();
       this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
-        console.log(data)
-        classifyImg(data.base64);
+        classifyImg(data.base64)
+        .then(res => this.setState({classified: res,loading: false}));
       });
       this.setState({
-        loading: true
+        loading: true,
+        blur: true
       });
 
     }
   }
-
-  onPictureSaved = async photo => {
-    this.setState({ img: photo });
-  }
-
   handlePhotoRoll = () => {
     console.log("PhotoRoll")
   }
 
   preOrPostPicture = () => {
-    return (
-      <React.Fragment>
-        <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
-          <BlurView intensity={this.state.loading ? 95 : 0} tint={'dark'} style={{ flex: 1, backgroundColor: 'transparent' }}>
-            <View style={{ flex: 90 / 100, backgroundColor: 'transparent', flexDirection: 'row' }} />
-            {this.state.loading ? <Loading /> : null}
-            <BottomUtilBar primary={this.handleSnap} third={this.handleFlip} secondary={() => console.log("PhotoRoll")} />
-          </BlurView>
-        </Camera>
-      </React.Fragment>
-    );
+    if (this.state.loading) {
+      return <Loading />
+    } else if (this.state.classified){
+      return <View><Text>{JSON.stringify(this.state.classified)}</Text></View>
+    }
+     
   }
 
   render() {
@@ -74,7 +66,13 @@ export default class CameraExample extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Header />
-          {this.preOrPostPicture()}
+          <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
+            <BlurView intensity={this.state.blur ? 95 : 0} tint={'dark'} style={{ flex: 1, backgroundColor: 'transparent' }}>
+              <View style={{ flex: 90 / 100, backgroundColor: 'transparent', flexDirection: 'row' }} />
+              {this.preOrPostPicture()}
+              <BottomUtilBar primary={this.handleSnap} third={this.handleFlip} secondary={() => console.log("PhotoRoll")} />
+            </BlurView>
+          </Camera>
         </View>
       );
     }
