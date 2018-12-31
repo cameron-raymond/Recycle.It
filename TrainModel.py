@@ -35,7 +35,8 @@ def main():
     # metal = createImageSet('../dataset/metal', ['recycling', 'metal'], ['trash'])
     # paper = createImageSet('../dataset/paper', ['recycling', 'paper'], ['trash'])
     # plastic = createImageSet('../dataset/plastic', ['recycling', 'plastic'], ['trash'])
-    # trash = createImageSet('../dataset/glass', ['trash'],['recycling'])
+    # trash = createImageSet('../dataset/trash', ['trash'],['recycling'])
+    # bulkImportConcepts(trash)
     # concepts = [cardboard,glass,metal,paper,plastic,trash]
     # for conceptSet in concepts:
     #     bulkImportConcepts(conceptSet)
