@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Camera, Permissions, BlurView } from 'expo';
+import Card from '../../components/Card/DumbCard'
 import { classifyImg } from '../../computation/Clarifai'
 import Header from '../../components/Header/Header'
 import BottomUtilBar from '../../components/BottomUtilBar/BottomUtilBar'
@@ -32,11 +33,12 @@ export default class Home extends React.Component {
   handleSnap = async () => {
     if (this.camera) {
       this.camera.pausePreview();
-      this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
-        classifyImg(data.base64)
-        .then(res => this.setState({classified: res,loading: false}));
-      });
+      // this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
+      //   classifyImg(data.base64)
+      //   .then(res => this.setState({classified: res,loading: false}));
+      // });
       this.setState({
+        classified: true,
         loading: true,
         blur: true
       });
@@ -48,11 +50,12 @@ export default class Home extends React.Component {
   }
 
   preOrPostPicture = () => {
-    if (this.state.loading) {
-      return <Loading />
-    } else if (this.state.classified){
-      return <View><Text>{JSON.stringify(this.state.classified)}</Text></View>
+    if (this.state.classified){
+      return <Card />
     }
+    else if (this.state.loading) {
+      return <Loading />
+    }  
      
   }
 
