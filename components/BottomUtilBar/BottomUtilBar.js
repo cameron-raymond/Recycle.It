@@ -10,18 +10,18 @@ export default class BottomUtil extends React.PureComponent {
         this.springValue = new Animated.Value(1)
         this.animateUtil = new Animated.Value(0)
     }
-    _animateUtil = () => {
+    _animateUtil = (val) => {
         return Animated.timing(
             this.animateUtil,
-            { useNativeDriver: true, toValue: 200 }
+            { useNativeDriver: true, toValue: val }
         )
     }
-    _animateButton = () => {
+    _animateButton = (size) => {
         return Animated.spring(
             this.springValue,
             {
                 useNativeDriver: true,
-                toValue: 0,
+                toValue: size,
                 friction: 30,
             }
         )
@@ -29,9 +29,16 @@ export default class BottomUtil extends React.PureComponent {
     _handleButton = () => {
         this.springValue.setValue(1)
         this.animateUtil.setValue(0)
-        Animated.stagger(20, [this._animateButton(), this._animateUtil()]).start()
+        Animated.stagger(20, [this._animateButton(0), this._animateUtil(200)]).start()
         {this.props.primary ? this.props.primary() : null}
-        this.setState({ disabled: true })
+    }
+
+    animateBack = () =>{
+        Animated.stagger(20, [this._animateButton(1), this._animateUtil(0)]).start()
+    }
+    _bringUtilBack = () => {
+        setTimeout(this.animateBack, 5)
+        
     }
 
     render() {

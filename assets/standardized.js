@@ -5,5 +5,6 @@ export const colours = {
 
 export const sizes = {
     smallIcon: 28,
-    largeIcon: 40
+    largeIcon: 40,
+    largestIcon: 80
 }

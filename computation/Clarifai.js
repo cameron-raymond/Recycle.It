@@ -1,5 +1,6 @@
 
 export async function classifyImg(imageData) {
+    console.log("here")
     // Initialise the Clarifai api
     const Clarifai = require('clarifai');
     const app = new Clarifai.App({
