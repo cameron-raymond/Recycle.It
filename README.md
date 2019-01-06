@@ -1,4 +1,4 @@
-# Recycle.It
+# RecycleIt
 This application draws from the Behavioural Insights Team that has been wildly successful in the United Kingdom. To encourage behaviour it must be easy, attractive, social and timely (EAST). 
 * Easy: The goal is to provide the user with information in as few clicks as possible, as intuitively as possible. 
 * Attractive: A simple and clean user interface that doesn't get in the way of the application. Possible rewards for recycling???
@@ -8,4 +8,6 @@ This application draws from the Behavioural Insights Team that has been wildly s
 
 For reference, [here](https://github.com/garythung/trashnet) is the link to the data set used.
 
-Ideally this will serve as a tool to help reduce recycling contamination with React Native and Tensorflow.
+Ideally this will serve as a tool to help reduce recycling contamination with React Native and a custom trained model w/ Clarifai.
+
+Next steps: Training a MLP with TensorFlow and injecting it into the app will be quicker, more cost effective and allow for offline usage. 
