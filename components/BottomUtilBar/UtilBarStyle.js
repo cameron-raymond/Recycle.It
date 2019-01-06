@@ -30,15 +30,15 @@ export default StyleSheet.create({
         height: 130,
         borderRadius: 130 / 2
     },
-    photoRoll: {
+   
+    icon: {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-around',
     },
-    flip: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-around',
+    text:{
+        fontFamily: 'Nunito-Regular',
+        fontSize: 15
     }
     
 })

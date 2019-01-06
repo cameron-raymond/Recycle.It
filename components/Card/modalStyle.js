@@ -29,10 +29,12 @@ export default StyleSheet.create({
     },
     title: {
         fontSize: 30,
+        fontFamily: 'Nunito-Regular'
         // colour: colours.header
     },
     body: {
         fontSize: 15,
+        fontFamily: 'Nunito-Light'
         // colour: colours.header
     },
     titleContainer: {

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './UtilBarStyle'
-import Flip from './Flip'
-import PhotoRoll from './PhotoRoll'
+import Icon from './Icon'
 import { TouchableOpacity, Animated } from 'react-native';
 
 export default class BottomUtil extends React.PureComponent {
@@ -46,16 +45,15 @@ export default class BottomUtil extends React.PureComponent {
     render() {
         return (
             <Animated.View style={[styles.container, { transform: [{ translateY: this.animateUtil }] }]}>
-                <PhotoRoll onPress={this.props.secondary} />
+                <Icon onPress={this.props.secondary} icon="image">PhotoRoll</Icon>
                 <TouchableOpacity
                     style={styles.cameraPos}
                     onPressIn={() => this._animateButton(1.25).start()}
-                    // onPressOut={() => this._animateButton(1).start()}
                     onPress={this._handleButton}
                     >
                     <Animated.View style={[styles.camera, { transform: [{ scale: this.springValue }] }]} />
                 </TouchableOpacity>
-                <Flip onPress={this.props.third} />
+                <Icon onPress={this.props.third} icon="retweet">Flip</Icon>
             </Animated.View>
         )
     }

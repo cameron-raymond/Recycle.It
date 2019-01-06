@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Alert } from 'react-native';
 import { Camera, Permissions, BlurView } from 'expo';
 import Card from '../../components/Card/Card'
 import { classifyImg } from '../../computation/Clarifai'
@@ -36,7 +36,7 @@ export default class Home extends React.Component {
       this.camera.pausePreview();
       this.camera.takePictureAsync({ skipProcessing: true, quality: 0.5, base64: true }).then((data) => {
         classifyImg(data.base64)
-        .then(res => this.setState({classified: res,loading: false}));
+          .then(res => this.setState({ classified: res, loading: false }));
       });
       this.setState({
         loading: true,
@@ -46,7 +46,12 @@ export default class Home extends React.Component {
     }
   }
   handlePhotoRoll = () => {
-    console.log("PhotoRoll")
+    Alert.alert(
+      'Whoops',
+      'We\'re still working on this feature; try again later!',
+      { text: 'OK', onPress: () => console.log('OK Pressed') },
+      { cancelable: false }
+    )
   }
 
   handleCloseModal = () => {
@@ -60,13 +65,13 @@ export default class Home extends React.Component {
   }
 
   preOrPostPicture = () => {
-    if (this.state.classified){
-      return <Card json={this.state.classified} onClose={this.handleCloseModal.bind(this)}/>
+    if (this.state.classified) {
+      return <Card json={this.state.classified} onClose={this.handleCloseModal.bind(this)} />
     }
     else if (this.state.loading) {
       return <Loading />
-    }  
-     
+    }
+
   }
 
   render() {
@@ -79,11 +84,11 @@ export default class Home extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Header />
-          <Camera style={{ flex: 1 }}  type={this.state.type} ref={ref => { this.camera = ref; }}>
+          <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
             <BlurView intensity={this.state.blur ? 95 : 0} tint={'dark'} style={{ flex: 1, backgroundColor: 'transparent' }}>
               <View style={{ flex: 90 / 100, backgroundColor: 'transparent', flexDirection: 'row' }} />
               {this.preOrPostPicture()}
-              <BottomUtilBar ref={util => {this.util = util}} primary={this.handleSnap} third={this.handleFlip} secondary={() => console.log("PhotoRoll")} />
+              <BottomUtilBar ref={util => { this.util = util }} primary={this.handleSnap} third={this.handleFlip} secondary={this.handlePhotoRoll} />
             </BlurView>
           </Camera>
         </View>

@@ -42,6 +42,7 @@ export default StyleSheet.create({
     },
     body: {
         fontSize: 15,
+        fontFamily: 'Nunito-Light'
         // colour: colours.header
     }
     
