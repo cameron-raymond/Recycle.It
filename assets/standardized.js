@@ -1,6 +1,7 @@
 export const colours = {
     header: '#F5F5F5',
-    icon: '#707070'
+    icon: '#707070',
+    blue: '#79bfd3'
 }
 
 export const sizes = {

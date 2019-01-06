@@ -1,5 +1,6 @@
 import { Linking, Text } from 'react-native';
 import React from 'react';
+import {colours} from '../../assets/standardized'
 
 export default class Anchor extends React.PureComponent {
   _handlePress = () => {
@@ -9,7 +10,7 @@ export default class Anchor extends React.PureComponent {
 
   render() {
     return (
-      <Text {...this.props} onPress={this._handlePress}>
+      <Text {...this.props} onPress={this._handlePress} style={{color: colours.blue}}>
         {this.props.children}
       </Text>
     );

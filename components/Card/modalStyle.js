@@ -8,12 +8,18 @@ export default StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginTop: height - 380,
+        marginTop: height - 400,
         height: 400,
         width: 300,
         padding: 30,
         backgroundColor: colours.header,
-        borderRadius: 20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        shadowColor: colours.icon,
+        shadowOffset: { width: -1, height: 1 },
+        shadowOpacity: 0.4,
+        shadowRadius: 8,
+        elevation: 5
 
     },
     closeButton: {

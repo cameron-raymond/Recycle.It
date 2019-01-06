@@ -27,13 +27,12 @@ export default class BottomUtil extends React.PureComponent {
         )
     }
     _closeUtil = () => {
-        this.springValue.setValue(1)
         this.animateUtil.setValue(0)
         Animated.stagger(20, [this._animateButton(0), this._animateUtil(200)]).start()
     }
     _handleButton = () =>{
         this._closeUtil();
-        {this.props.primary ? this.props.primary() : null}
+        // {this.props.primary ? this.props.primary() : null}
     }
 
     animateBack = () =>{
@@ -50,7 +49,9 @@ export default class BottomUtil extends React.PureComponent {
                 <PhotoRoll onPress={this.props.secondary} />
                 <TouchableOpacity
                     style={styles.cameraPos}
-                    onPress={this._handleButton}>
+                    onPressIn={() => this._animateButton(1.25).start()}
+                    onPress={this._handleButton}
+                    >
                     <Animated.View style={[styles.camera, { transform: [{ scale: this.springValue }] }]} />
                 </TouchableOpacity>
                 <Flip onPress={this.props.third} />

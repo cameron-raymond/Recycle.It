@@ -11,6 +11,13 @@ export default StyleSheet.create({
         backgroundColor: colours.header,
         alignItems: 'center',
         justifyContent: 'space-between',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        shadowColor: colours.icon,
+        shadowOffset: { width: -1, height: 1 },
+        shadowOpacity: 0.4,
+        shadowRadius: 8,
+        elevation: 5
     },
     cameraPos:{
         position: 'absolute',
@@ -18,7 +25,7 @@ export default StyleSheet.create({
         left: (width/2)-130/2,
     },
     camera: {
-        backgroundColor: '#666',
+        backgroundColor: colours.icon,
         width: 130,
         height: 130,
         borderRadius: 130 / 2
