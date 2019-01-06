@@ -26,10 +26,13 @@ export default class BottomUtil extends React.PureComponent {
             }
         )
     }
-    _handleButton = () => {
+    _closeUtil = () => {
         this.springValue.setValue(1)
         this.animateUtil.setValue(0)
         Animated.stagger(20, [this._animateButton(0), this._animateUtil(200)]).start()
+    }
+    _handleButton = () =>{
+        this._closeUtil();
         {this.props.primary ? this.props.primary() : null}
     }
 

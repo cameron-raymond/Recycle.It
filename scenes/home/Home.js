@@ -34,7 +34,7 @@ export default class Home extends React.Component {
   handleSnap = async () => {
     if (this.camera) {
       this.camera.pausePreview();
-      this.camera.takePictureAsync({ skipProcessing: true, base64: true }).then((data) => {
+      this.camera.takePictureAsync({ skipProcessing: true, quality: 0.5, base64: true }).then((data) => {
         classifyImg(data.base64)
         .then(res => this.setState({classified: res,loading: false}));
       });
@@ -79,7 +79,7 @@ export default class Home extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Header />
-          <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
+          <Camera style={{ flex: 1 }}  type={this.state.type} ref={ref => { this.camera = ref; }}>
             <BlurView intensity={this.state.blur ? 95 : 0} tint={'dark'} style={{ flex: 1, backgroundColor: 'transparent' }}>
               <View style={{ flex: 90 / 100, backgroundColor: 'transparent', flexDirection: 'row' }} />
               {this.preOrPostPicture()}

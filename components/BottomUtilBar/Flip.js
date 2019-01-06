@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './UtilBarStyle'
-import { colours, size, sizes } from '../../assets/standardized'
+import { colours, sizes } from '../../assets/standardized'
 import { Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
