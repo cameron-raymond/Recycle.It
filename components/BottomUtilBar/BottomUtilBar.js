@@ -32,7 +32,7 @@ export default class BottomUtil extends React.PureComponent {
     }
     _handleButton = () =>{
         this._closeUtil();
-        // {this.props.primary ? this.props.primary() : null}
+        {this.props.primary ? this.props.primary() : null}
     }
 
     animateBack = () =>{
@@ -50,6 +50,7 @@ export default class BottomUtil extends React.PureComponent {
                 <TouchableOpacity
                     style={styles.cameraPos}
                     onPressIn={() => this._animateButton(1.25).start()}
+                    // onPressOut={() => this._animateButton(1).start()}
                     onPress={this._handleButton}
                     >
                     <Animated.View style={[styles.camera, { transform: [{ scale: this.springValue }] }]} />

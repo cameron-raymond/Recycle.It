@@ -43,7 +43,7 @@ export default class Card extends React.Component {
       >
         <View style={style.modal}>
           <CloseButton onPress={this.setModalVisible} style={style.closeButton} />
-          <Title>{predJson.title}</Title>
+          <Title icon={predJson.icon}>{predJson.title}</Title>
           <Text style={style.body}>{predJson.content}</Text>
 
         </View>
