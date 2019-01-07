@@ -25,10 +25,18 @@ export default StyleSheet.create({
         left: (width/2)-130/2,
     },
     camera: {
-        backgroundColor: colours.icon,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems:'center',
+        backgroundColor: colours.blue,
         width: 130,
         height: 130,
-        borderRadius: 130 / 2
+        borderRadius: 130 / 2,
+        shadowColor: colours.icon,
+        shadowOffset: { width: -1, height: 1 },
+        shadowOpacity: 0.4,
+        shadowRadius: 8,
+        elevation: 5
     },
    
     icon: {

@@ -24,10 +24,11 @@ export default class Info extends Component {
                     animationType="slide"
                     transparent={true}
                     visible={this.state.modalVisible}
+                    onRequestClose={() => { this.setModalVisible(false); }}
                 >
                     <View style={style.modal}>
                         <CloseButton onPress={() => { this.setModalVisible(false); }} style={style.closeButton} />
-                        <Title>RecycleIt</Title>
+                        <Title>RecycleIt.</Title>
 
                         <Text style={style.body}>Welcome to RecycleIt! The app that uses <Text style={{fontFamily: 'Nunito-LightItalic'}}>computer vision</Text> to help reduce recycling contamination!{"\n"}{"\n"}To get started: grab an item, take a picture with the middle icon in a well lit setting and the app will try and give information on how to dispose of it properly!
                         {"\n"}{"\n"}For more information, all references and the app's source code visit our <Anchor href="https://github.com/cameron-raymond/Recycle.It" >Github repo</Anchor>.</Text>

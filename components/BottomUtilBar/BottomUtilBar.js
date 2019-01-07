@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './UtilBarStyle'
 import Icon from './Icon'
+import CamIcon from 'react-native-vector-icons/EvilIcons';
+import {sizes, colours} from '../../assets/standardized'
 import { TouchableOpacity, Animated } from 'react-native';
 
 export default class BottomUtil extends React.PureComponent {
@@ -29,29 +31,31 @@ export default class BottomUtil extends React.PureComponent {
         this.animateUtil.setValue(0)
         Animated.stagger(20, [this._animateButton(0), this._animateUtil(200)]).start()
     }
-    _handleButton = () =>{
+    _handleButton = () => {
         this._closeUtil();
-        {this.props.primary ? this.props.primary() : null}
+        { this.props.primary ? this.props.primary() : null }
     }
 
-    animateBack = () =>{
+    animateBack = () => {
         Animated.stagger(20, [this._animateButton(1), this._animateUtil(0)]).start()
     }
     _bringUtilBack = () => {
         setTimeout(this.animateBack, 5)
-        
+
     }
 
     render() {
         return (
             <Animated.View style={[styles.container, { transform: [{ translateY: this.animateUtil }] }]}>
-                <Icon onPress={this.props.secondary} icon="image">PhotoRoll</Icon>
+                <Icon onPress={this.props.secondary} icon="image">Photo Roll</Icon>
                 <TouchableOpacity
                     style={styles.cameraPos}
                     onPressIn={() => this._animateButton(1.25).start()}
                     onPress={this._handleButton}
-                    >
-                    <Animated.View style={[styles.camera, { transform: [{ scale: this.springValue }] }]} />
+                >
+                    <Animated.View style={[styles.camera, { transform: [{ scale: this.springValue }] }]}>
+                        <CamIcon name={'camera'} size={sizes.largeIcon+10} color={colours.header}/>
+                    </Animated.View>
                 </TouchableOpacity>
                 <Icon onPress={this.props.third} icon="retweet">Flip</Icon>
             </Animated.View>

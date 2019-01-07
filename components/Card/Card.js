@@ -40,6 +40,7 @@ export default class Card extends React.Component {
         animationType="slide"
         transparent={true}
         visible={this.state.modalVisible}
+        onRequestClose={this.setModalVisible}
       >
         <View style={style.modal}>
           <CloseButton onPress={this.setModalVisible} style={style.closeButton} />
