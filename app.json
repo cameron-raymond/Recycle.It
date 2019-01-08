@@ -39,7 +39,7 @@
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },
-    "description": "",
+    "description": "Welcome to RecycleIt. The app that uses computer vision to help reduce recycling contamination!",
     "githubUrl": "https://github.com/cameron-raymond/Recycle.It"
   }
 }
