@@ -6,7 +6,9 @@ This application draws from the Behavioural Insights Team that has been wildly s
 * Timely: The app will be opened used to picture one thing and then closed. This entire flow should happen in < 10 seconds ideally.
 
 
-For reference, [here](https://github.com/garythung/trashnet) is the link to the data set used.
+For reference,  [here](https://github.com/garythung/trashnet) is the link to the data set used.
+                [Loading Animation](https://www.lottiefiles.com/935-loading) courtesy of Luisa Fernanda Bolaños Beltrán
+                [Close Button Animation](https://www.lottiefiles.com/2479-close) courtesy of Drew Matthews
 
 Ideally this will serve as a tool to help reduce recycling contamination with React Native and a custom trained model w/ Clarifai.
 
